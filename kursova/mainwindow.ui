@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>700</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,6 +46,9 @@
        <property name="text">
         <string>input from keyboard</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -78,7 +81,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>360</y>
+      <y>280</y>
       <width>551</width>
       <height>80</height>
      </rect>
@@ -105,6 +108,9 @@
        </property>
        <property name="text">
         <string>Bisection</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -140,8 +146,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>210</y>
+      <x>140</x>
+      <y>180</y>
       <width>391</width>
       <height>40</height>
      </rect>
@@ -156,7 +162,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>460</y>
+      <y>370</y>
       <width>160</width>
       <height>80</height>
      </rect>
@@ -175,11 +181,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_2">
+      <widget class="QLineEdit" name="lineEdit_e">
        <property name="font">
         <font>
          <pointsize>15</pointsize>
         </font>
+       </property>
+       <property name="text">
+        <string>0.001</string>
        </property>
       </widget>
      </item>
@@ -188,10 +197,10 @@
    <widget class="QPushButton" name="btn_calculate">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>460</y>
+      <x>350</x>
+      <y>360</y>
       <width>181</width>
-      <height>91</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="font">
@@ -207,7 +216,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>150</y>
+      <y>140</y>
       <width>141</width>
       <height>16</height>
      </rect>
@@ -225,7 +234,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>140</y>
+      <y>130</y>
       <width>121</width>
       <height>40</height>
      </rect>
@@ -235,58 +244,15 @@
       <pointsize>15</pointsize>
      </font>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>460</y>
-      <width>42</width>
-      <height>79</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>24</pointsize>
-     </font>
-    </property>
     <property name="text">
-     <string>≤х≤</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
-    <property name="enabled">
-     <bool>true</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>490</y>
-      <width>60</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>490</y>
-      <width>60</width>
-      <height>22</height>
-     </rect>
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_inputequations">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>220</y>
+      <x>20</x>
+      <y>190</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -304,7 +270,7 @@
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>270</y>
+      <y>230</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -316,8 +282,8 @@
    <widget class="QLabel" name="lbl_inforesult">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>580</y>
+      <x>10</x>
+      <y>470</y>
       <width>151</width>
       <height>16</height>
      </rect>
@@ -334,10 +300,10 @@
    <widget class="QLabel" name="lbl_result">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>580</y>
+      <x>170</x>
+      <y>470</y>
       <width>361</width>
-      <height>21</height>
+      <height>16</height>
      </rect>
     </property>
     <property name="font">
@@ -352,8 +318,8 @@
    <widget class="QLabel" name="label_file">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>280</y>
+      <x>20</x>
+      <y>240</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -371,7 +337,7 @@
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>270</y>
+      <y>230</y>
       <width>331</width>
       <height>40</height>
      </rect>
@@ -381,12 +347,15 @@
       <pointsize>15</pointsize>
      </font>
     </property>
+    <property name="text">
+     <string>/Users/vova/Desktop/input.txt</string>
+    </property>
    </widget>
    <widget class="QLabel" name="lbl_iterationinfo">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>540</y>
+      <x>580</x>
+      <y>510</y>
       <width>155</width>
       <height>20</height>
      </rect>
@@ -400,13 +369,13 @@
      <string>Iteration done:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_addinfo">
+   <widget class="QPushButton" name="btn_save">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>560</y>
-      <width>155</width>
-      <height>20</height>
+      <x>380</x>
+      <y>500</y>
+      <width>113</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -415,33 +384,15 @@
      </font>
     </property>
     <property name="text">
-     <string>Adding number:</string>
+     <string>Save result</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_multinfo">
+   <widget class="QLabel" name="lbl_output_file">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>580</y>
-      <width>155</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Multiplication number:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lbl_iterationnumber">
-    <property name="geometry">
-     <rect>
-      <x>750</x>
-      <y>540</y>
-      <width>200</width>
+      <x>10</x>
+      <y>510</y>
+      <width>121</width>
       <height>16</height>
      </rect>
     </property>
@@ -451,16 +402,16 @@
      </font>
     </property>
     <property name="text">
-     <string/>
+     <string>Enter file to save:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_addnumber">
+   <widget class="QLineEdit" name="le_filename_tosave">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>560</y>
-      <width>200</width>
-      <height>16</height>
+      <x>130</x>
+      <y>500</y>
+      <width>241</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="font">
@@ -469,26 +420,69 @@
      </font>
     </property>
     <property name="text">
-     <string/>
+     <string>/Users/vova/Desktop/output.txt</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_multiplicationnumber">
+   <widget class="QChartView" name="graphik">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>580</y>
-      <width>200</width>
-      <height>16</height>
+      <x>580</x>
+      <y>-9</y>
+      <width>591</width>
+      <height>491</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>15</pointsize>
-     </font>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>370</y>
+      <width>160</width>
+      <height>80</height>
+     </rect>
     </property>
-    <property name="text">
-     <string/>
-    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLineEdit" name="le_minx">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>-10</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>24</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>≤х≤</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="le_maxx">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>10</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -503,6 +497,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QChartView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtCharts</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

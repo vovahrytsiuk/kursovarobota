@@ -54,10 +54,12 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../kursova/main.cpp \
 		../kursova/mainwindow.cpp \
-		../kursova/polinom.cpp moc_mainwindow.cpp
+		../kursova/polinom.cpp \
+		../kursova/solution.cpp moc_mainwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		polinom.o \
+		solution.o \
 		moc_mainwindow.o
 DIST          = ../../Qt/5.12.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.5/clang_64/mkspecs/qdevice.pri \
@@ -253,9 +255,11 @@ DIST          = ../../Qt/5.12.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.5/clang_64/mkspecs/features/yacc.prf \
 		../../Qt/5.12.5/clang_64/mkspecs/features/lex.prf \
 		../kursova/kursova.pro ../kursova/mainwindow.h \
-		../kursova/polinom.h ../kursova/main.cpp \
+		../kursova/polinom.h \
+		../kursova/solution.h ../kursova/main.cpp \
 		../kursova/mainwindow.cpp \
-		../kursova/polinom.cpp
+		../kursova/polinom.cpp \
+		../kursova/solution.cpp
 QMAKE_TARGET  = kursova
 DESTDIR       = 
 TARGET        = kursova.app/Contents/MacOS/kursova
@@ -705,8 +709,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/5.12.5/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../kursova/mainwindow.h ../kursova/polinom.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../kursova/main.cpp ../kursova/mainwindow.cpp ../kursova/polinom.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../kursova/mainwindow.h ../kursova/polinom.h ../kursova/solution.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../kursova/main.cpp ../kursova/mainwindow.cpp ../kursova/polinom.cpp ../kursova/solution.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../kursova/mainwindow.ui $(DISTDIR)/
 
 
@@ -748,6 +752,13 @@ compiler_moc_header_clean:
 moc_mainwindow.cpp: ../kursova/mainwindow.h \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../kursova/polinom.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		moc_predefs.h \
 		../../Qt/5.12.5/clang_64/bin/moc
 	/Users/vova/Qt/5.12.5/clang_64/bin/moc $(DEFINES) --include /Users/vova/kursovarobota/build-kursova-Desktop_Qt_5_12_5_clang_64bit-Debug/moc_predefs.h -I/Users/vova/Qt/5.12.5/clang_64/mkspecs/macx-clang -I/Users/vova/kursovarobota/kursova -I/Users/vova/Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers -I/Users/vova/Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/vova/Qt/5.12.5/clang_64/lib/QtGui.framework/Headers -I/Users/vova/Qt/5.12.5/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include -F/Users/vova/Qt/5.12.5/clang_64/lib ../kursova/mainwindow.h -o moc_mainwindow.cpp
@@ -760,7 +771,8 @@ compiler_uic_make_all: ui_mainwindow.h
 compiler_uic_clean:
 	-$(DEL_FILE) ui_mainwindow.h
 ui_mainwindow.h: ../kursova/mainwindow.ui \
-		../../Qt/5.12.5/clang_64/bin/uic
+		../../Qt/5.12.5/clang_64/bin/uic \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/QtCharts
 	/Users/vova/Qt/5.12.5/clang_64/bin/uic ../kursova/mainwindow.ui -o ui_mainwindow.h
 
 compiler_rez_source_make_all:
@@ -779,6 +791,12 @@ main.o: ../kursova/main.cpp ../kursova/mainwindow.h \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../kursova/polinom.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../kursova/main.cpp
@@ -786,11 +804,87 @@ main.o: ../kursova/main.cpp ../kursova/mainwindow.h \
 mainwindow.o: ../kursova/mainwindow.cpp ../kursova/mainwindow.h \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		ui_mainwindow.h
+		../kursova/polinom.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		ui_mainwindow.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/QtCharts \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qchartglobal.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/chartsnamespace.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qabstractaxis.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qabstractbarseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qabstractseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qarealegendmarker.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qareaseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qbarcategoryaxis.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qbarlegendmarker.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qbarmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qbarseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qbarset.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qboxplotlegendmarker.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qboxplotmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qboxplotseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qboxset.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qcandlesticklegendmarker.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qcandlestickmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qcandlestickseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qcandlestickset.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qcategoryaxis.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qchart.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qchartview.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qdatetimeaxis.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhbarmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhboxplotmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhcandlestickmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhorizontalbarseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhorizontalpercentbarseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhorizontalstackedbarseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhpiemodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qhxymodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qlegend.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qlegendmarker.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qlineseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qlogvalueaxis.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qpercentbarseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qpielegendmarker.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qpiemodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qpieseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qpieslice.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qpolarchart.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qscatterseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qsplineseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qstackedbarseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qvalueaxis.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qvbarmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qvboxplotmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qvcandlestickmodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qvpiemodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qvxymodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qxylegendmarker.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qxymodelmapper.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qxyseries.h \
+		../../Qt/5.12.5/clang_64/lib/QtCharts.framework/Headers/qtchartsversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../kursova/mainwindow.cpp
 
-polinom.o: ../kursova/polinom.cpp ../kursova/polinom.h
+polinom.o: ../kursova/polinom.cpp ../kursova/polinom.h \
+		../kursova/mainwindow.h \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../Qt/5.12.5/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../Qt/5.12.5/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o polinom.o ../kursova/polinom.cpp
+
+solution.o: ../kursova/solution.cpp ../kursova/solution.h \
+		../kursova/polinom.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o solution.o ../kursova/solution.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

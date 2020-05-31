@@ -16,6 +16,7 @@
 #include <QtCharts/QPieSeries>
 #include <QtCharts/QPieSlice>
 #include "polinom.h"
+#include "solution.h"
 #include <QTextStream>
 #include <QFile>
 #include <QMessageBox>
@@ -25,6 +26,7 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 using namespace std;
+using namespace QtCharts;
 
 
 class MainWindow : public QMainWindow
@@ -34,6 +36,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void create_graphic(Polinom p, double minx, double maxx, double dx, QString graph_name);
 
 private slots:
 
@@ -47,6 +50,8 @@ private slots:
     void on_input_random_clicked();
 
     void on_b_choose_file_clicked();
+
+    void on_btn_save_clicked();
 
 private:
     Ui::MainWindow *ui;

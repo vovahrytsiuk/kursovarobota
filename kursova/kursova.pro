@@ -1,5 +1,5 @@
-QT       += core gui
-QT +=core gui charts
+QT       += core gui charts
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    polinom.cpp
+    polinom.cpp \
+    solution.cpp
 
 HEADERS += \
     mainwindow.h \
-    polinom.h
+    polinom.h \
+    solution.h
 
 FORMS += \
     mainwindow.ui

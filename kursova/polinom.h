@@ -9,31 +9,25 @@
 
 using namespace std;
 
+string generate_equations(int power);
+
 
 class Polinom
 {
     int power;//Степінь полінома
-    vector<float> koefficients;//Коефіцієнти нелінійного алгебраїчного рівняння
+    vector<double> koefficients;//Коефіцієнти нелінійного алгебраїчного рівняння
 public:
     Polinom();
+    Polinom(int power, vector<double> koefficients);
     Polinom(int newpower, string input_polinom);
     friend class Solution;
-    float caclc_function(float x);
+    double caclc_function(double x);
     Polinom differential();
 };
 
 
-class Solution
-{
-    vector<float> interval(Polinom p, float maxx, float minx);
-public:
-    Solution();
-    vector<float> bisection(Polinom p, float maxx, float minx, double e);
-    vector<float> methodNewton(Polinom p, float maxx, float minx, double e);
-    vector<float> secantMethod(Polinom p, float maxx, float minx, double e);
-};
 
-string res_to_string(vector<float> roots);
+
 
 
 #endif // POLINOM_H

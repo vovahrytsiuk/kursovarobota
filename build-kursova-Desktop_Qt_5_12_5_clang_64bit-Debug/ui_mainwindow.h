@@ -20,6 +20,7 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
+#include "QtCharts"
 
 QT_BEGIN_NAMESPACE
 
@@ -43,13 +44,10 @@ public:
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label;
-    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_e;
     QPushButton *btn_calculate;
     QLabel *lbl_power;
     QLineEdit *le_power;
-    QLabel *label_2;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_3;
     QLabel *lbl_inputequations;
     QPushButton *b_choose_file;
     QLabel *lbl_inforesult;
@@ -57,11 +55,15 @@ public:
     QLabel *label_file;
     QLineEdit *le_filename;
     QLabel *lbl_iterationinfo;
-    QLabel *lbl_addinfo;
-    QLabel *lbl_multinfo;
-    QLabel *lbl_iterationnumber;
-    QLabel *lbl_addnumber;
-    QLabel *lbl_multiplicationnumber;
+    QPushButton *btn_save;
+    QLabel *lbl_output_file;
+    QLineEdit *le_filename_tosave;
+    QChartView *graphik;
+    QWidget *horizontalLayoutWidget_4;
+    QHBoxLayout *horizontalLayout_4;
+    QLineEdit *le_minx;
+    QLabel *label_2;
+    QLineEdit *le_maxx;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -69,7 +71,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1200, 700);
+        MainWindow->resize(1200, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayoutWidget = new QWidget(centralwidget);
@@ -89,6 +91,7 @@ public:
         input_keyboard = new QRadioButton(horizontalLayoutWidget);
         input_keyboard->setObjectName(QString::fromUtf8("input_keyboard"));
         input_keyboard->setFont(font);
+        input_keyboard->setChecked(true);
 
         horizontalLayout->addWidget(input_keyboard);
 
@@ -106,7 +109,7 @@ public:
 
         horizontalLayoutWidget_2 = new QWidget(centralwidget);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(10, 360, 551, 80));
+        horizontalLayoutWidget_2->setGeometry(QRect(10, 280, 551, 80));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -119,6 +122,7 @@ public:
         b_bisection = new QRadioButton(horizontalLayoutWidget_2);
         b_bisection->setObjectName(QString::fromUtf8("b_bisection"));
         b_bisection->setFont(font);
+        b_bisection->setChecked(true);
 
         horizontalLayout_2->addWidget(b_bisection);
 
@@ -137,11 +141,11 @@ public:
         le_euations = new QLineEdit(centralwidget);
         le_euations->setObjectName(QString::fromUtf8("le_euations"));
         le_euations->setEnabled(true);
-        le_euations->setGeometry(QRect(130, 210, 391, 40));
+        le_euations->setGeometry(QRect(140, 180, 391, 40));
         le_euations->setFont(font);
         horizontalLayoutWidget_3 = new QWidget(centralwidget);
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(10, 460, 160, 80));
+        horizontalLayoutWidget_3->setGeometry(QRect(10, 370, 160, 80));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -153,83 +157,91 @@ public:
 
         horizontalLayout_3->addWidget(label);
 
-        lineEdit_2 = new QLineEdit(horizontalLayoutWidget_3);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setFont(font);
+        lineEdit_e = new QLineEdit(horizontalLayoutWidget_3);
+        lineEdit_e->setObjectName(QString::fromUtf8("lineEdit_e"));
+        lineEdit_e->setFont(font);
 
-        horizontalLayout_3->addWidget(lineEdit_2);
+        horizontalLayout_3->addWidget(lineEdit_e);
 
         btn_calculate = new QPushButton(centralwidget);
         btn_calculate->setObjectName(QString::fromUtf8("btn_calculate"));
-        btn_calculate->setGeometry(QRect(380, 460, 181, 91));
+        btn_calculate->setGeometry(QRect(350, 360, 181, 101));
         btn_calculate->setFont(font);
         lbl_power = new QLabel(centralwidget);
         lbl_power->setObjectName(QString::fromUtf8("lbl_power"));
-        lbl_power->setGeometry(QRect(10, 150, 141, 16));
+        lbl_power->setGeometry(QRect(10, 140, 141, 16));
         lbl_power->setFont(font);
         le_power = new QLineEdit(centralwidget);
         le_power->setObjectName(QString::fromUtf8("le_power"));
-        le_power->setGeometry(QRect(150, 140, 121, 40));
+        le_power->setGeometry(QRect(150, 130, 121, 40));
         le_power->setFont(font);
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(260, 460, 42, 79));
-        label_2->setFont(font1);
-        lineEdit_4 = new QLineEdit(centralwidget);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
-        lineEdit_4->setEnabled(true);
-        lineEdit_4->setGeometry(QRect(310, 490, 60, 22));
-        lineEdit_4->setFont(font);
-        lineEdit_3 = new QLineEdit(centralwidget);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(190, 490, 60, 22));
         lbl_inputequations = new QLabel(centralwidget);
         lbl_inputequations->setObjectName(QString::fromUtf8("lbl_inputequations"));
-        lbl_inputequations->setGeometry(QRect(10, 220, 111, 16));
+        lbl_inputequations->setGeometry(QRect(20, 190, 111, 16));
         lbl_inputequations->setFont(font);
         b_choose_file = new QPushButton(centralwidget);
         b_choose_file->setObjectName(QString::fromUtf8("b_choose_file"));
-        b_choose_file->setGeometry(QRect(420, 270, 121, 41));
+        b_choose_file->setGeometry(QRect(420, 230, 121, 41));
         lbl_inforesult = new QLabel(centralwidget);
         lbl_inforesult->setObjectName(QString::fromUtf8("lbl_inforesult"));
-        lbl_inforesult->setGeometry(QRect(40, 580, 151, 16));
+        lbl_inforesult->setGeometry(QRect(10, 470, 151, 16));
         lbl_inforesult->setFont(font);
         lbl_result = new QLabel(centralwidget);
         lbl_result->setObjectName(QString::fromUtf8("lbl_result"));
-        lbl_result->setGeometry(QRect(200, 580, 361, 21));
+        lbl_result->setGeometry(QRect(170, 470, 361, 16));
         lbl_result->setFont(font);
         label_file = new QLabel(centralwidget);
         label_file->setObjectName(QString::fromUtf8("label_file"));
-        label_file->setGeometry(QRect(10, 280, 71, 16));
+        label_file->setGeometry(QRect(20, 240, 71, 16));
         label_file->setFont(font);
         le_filename = new QLineEdit(centralwidget);
         le_filename->setObjectName(QString::fromUtf8("le_filename"));
-        le_filename->setGeometry(QRect(90, 270, 331, 40));
+        le_filename->setGeometry(QRect(90, 230, 331, 40));
         le_filename->setFont(font);
         lbl_iterationinfo = new QLabel(centralwidget);
         lbl_iterationinfo->setObjectName(QString::fromUtf8("lbl_iterationinfo"));
-        lbl_iterationinfo->setGeometry(QRect(590, 540, 155, 20));
+        lbl_iterationinfo->setGeometry(QRect(580, 510, 155, 20));
         lbl_iterationinfo->setFont(font);
-        lbl_addinfo = new QLabel(centralwidget);
-        lbl_addinfo->setObjectName(QString::fromUtf8("lbl_addinfo"));
-        lbl_addinfo->setGeometry(QRect(590, 560, 155, 20));
-        lbl_addinfo->setFont(font);
-        lbl_multinfo = new QLabel(centralwidget);
-        lbl_multinfo->setObjectName(QString::fromUtf8("lbl_multinfo"));
-        lbl_multinfo->setGeometry(QRect(590, 580, 155, 20));
-        lbl_multinfo->setFont(font);
-        lbl_iterationnumber = new QLabel(centralwidget);
-        lbl_iterationnumber->setObjectName(QString::fromUtf8("lbl_iterationnumber"));
-        lbl_iterationnumber->setGeometry(QRect(750, 540, 200, 16));
-        lbl_iterationnumber->setFont(font);
-        lbl_addnumber = new QLabel(centralwidget);
-        lbl_addnumber->setObjectName(QString::fromUtf8("lbl_addnumber"));
-        lbl_addnumber->setGeometry(QRect(750, 560, 200, 16));
-        lbl_addnumber->setFont(font);
-        lbl_multiplicationnumber = new QLabel(centralwidget);
-        lbl_multiplicationnumber->setObjectName(QString::fromUtf8("lbl_multiplicationnumber"));
-        lbl_multiplicationnumber->setGeometry(QRect(750, 580, 200, 16));
-        lbl_multiplicationnumber->setFont(font);
+        btn_save = new QPushButton(centralwidget);
+        btn_save->setObjectName(QString::fromUtf8("btn_save"));
+        btn_save->setGeometry(QRect(380, 500, 113, 41));
+        btn_save->setFont(font);
+        lbl_output_file = new QLabel(centralwidget);
+        lbl_output_file->setObjectName(QString::fromUtf8("lbl_output_file"));
+        lbl_output_file->setGeometry(QRect(10, 510, 121, 16));
+        lbl_output_file->setFont(font);
+        le_filename_tosave = new QLineEdit(centralwidget);
+        le_filename_tosave->setObjectName(QString::fromUtf8("le_filename_tosave"));
+        le_filename_tosave->setGeometry(QRect(130, 500, 241, 40));
+        le_filename_tosave->setFont(font);
+        graphik = new QChartView(centralwidget);
+        graphik->setObjectName(QString::fromUtf8("graphik"));
+        graphik->setGeometry(QRect(580, -9, 591, 491));
+        horizontalLayoutWidget_4 = new QWidget(centralwidget);
+        horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
+        horizontalLayoutWidget_4->setGeometry(QRect(180, 370, 160, 80));
+        horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget_4);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        le_minx = new QLineEdit(horizontalLayoutWidget_4);
+        le_minx->setObjectName(QString::fromUtf8("le_minx"));
+        le_minx->setEnabled(true);
+        le_minx->setFont(font);
+
+        horizontalLayout_4->addWidget(le_minx);
+
+        label_2 = new QLabel(horizontalLayoutWidget_4);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setFont(font1);
+
+        horizontalLayout_4->addWidget(label_2);
+
+        le_maxx = new QLineEdit(horizontalLayoutWidget_4);
+        le_maxx->setObjectName(QString::fromUtf8("le_maxx"));
+        le_maxx->setFont(font);
+
+        horizontalLayout_4->addWidget(le_maxx);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -256,20 +268,23 @@ public:
         b_newthon->setText(QApplication::translate("MainWindow", "Newton's method", nullptr));
         b_secant->setText(QApplication::translate("MainWindow", "Secant method", nullptr));
         label->setText(QApplication::translate("MainWindow", " \316\265 = ", nullptr));
+        lineEdit_e->setText(QApplication::translate("MainWindow", "0.001", nullptr));
         btn_calculate->setText(QApplication::translate("MainWindow", "Calculate", nullptr));
         lbl_power->setText(QApplication::translate("MainWindow", "Power of equations:", nullptr));
-        label_2->setText(QApplication::translate("MainWindow", "\342\211\244\321\205\342\211\244", nullptr));
+        le_power->setText(QString());
         lbl_inputequations->setText(QApplication::translate("MainWindow", "Input equations:", nullptr));
         b_choose_file->setText(QApplication::translate("MainWindow", "Check file", nullptr));
         lbl_inforesult->setText(QApplication::translate("MainWindow", "Root of input polinom:", nullptr));
         lbl_result->setText(QString());
         label_file->setText(QApplication::translate("MainWindow", "File name:", nullptr));
+        le_filename->setText(QApplication::translate("MainWindow", "/Users/vova/Desktop/input.txt", nullptr));
         lbl_iterationinfo->setText(QApplication::translate("MainWindow", "Iteration done:", nullptr));
-        lbl_addinfo->setText(QApplication::translate("MainWindow", "Adding number:", nullptr));
-        lbl_multinfo->setText(QApplication::translate("MainWindow", "Multiplication number:", nullptr));
-        lbl_iterationnumber->setText(QString());
-        lbl_addnumber->setText(QString());
-        lbl_multiplicationnumber->setText(QString());
+        btn_save->setText(QApplication::translate("MainWindow", "Save result", nullptr));
+        lbl_output_file->setText(QApplication::translate("MainWindow", "Enter file to save:", nullptr));
+        le_filename_tosave->setText(QApplication::translate("MainWindow", "/Users/vova/Desktop/output.txt", nullptr));
+        le_minx->setText(QApplication::translate("MainWindow", "-10", nullptr));
+        label_2->setText(QApplication::translate("MainWindow", "\342\211\244\321\205\342\211\244", nullptr));
+        le_maxx->setText(QApplication::translate("MainWindow", "10", nullptr));
     } // retranslateUi
 
 };
